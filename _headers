@@ -1,0 +1,8 @@
+/index.html
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/toko-guide.png
+  Cache-Control: public, max-age=86400

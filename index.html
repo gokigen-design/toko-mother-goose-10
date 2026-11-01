@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="見て、まねして、歌える。トコの手遊び動画つきマザーグース10曲">
+  <title>トコの手遊び動画つき マザーグース厳選10曲</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f8f1e4;
+      --paper-light: #fffdf8;
+      --ink: #303a38;
+      --muted: #65706c;
+      --line: #2f3e3a;
+      --red: #c96155;
+      --red-soft: #efd8ce;
+      --blue: #527f91;
+      --blue-soft: #dbe7e7;
+      --green: #638a76;
+      --green-soft: #dce8dc;
+      --mustard: #b78632;
+      --mustard-soft: #eee0bc;
+      --plum: #83677b;
+      --plum-soft: #e8dce4;
+    }
+
+    html { box-sizing: border-box; scroll-behavior: smooth; }
+    body, button, div, header, nav, main, section, article, footer, span, p, h1, h2, h3, ul, li, svg, video { box-sizing: inherit; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image: radial-gradient(rgba(48,58,56,.075) .65px, transparent .65px);
+      background-size: 5px 5px;
+      font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
+      font-size: 16px;
+      line-height: 1.9;
+      word-break: auto-phrase;
+      overflow-wrap: anywhere;
+    }
+    button { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: "Klee One", "Yu Mincho", serif; line-height: 1.45; word-break: normal; }
+    h1 { margin-bottom: 20px; font-size: 32px; }
+    h2 { margin-bottom: 16px; font-size: 26px; }
+    h3 { margin-bottom: 12px; font-size: 20px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; border: 0; clip: rect(0 0 0 0); white-space: nowrap; }
+    .inner { width: min(100%, 960px); margin-inline: auto; padding-inline: 24px; }
+    main, section, article, .inner, .hero__copy { min-width: 0; }
+
+    .hero { position: relative; overflow: hidden; border-bottom: 1px solid #afa696; background: var(--paper-light); }
+    .hero::before, .hero::after { position: absolute; border: 1.5px solid var(--line); border-radius: 50%; content: ""; opacity: .38; }
+    .hero::before { top: -64px; right: -78px; width: 220px; height: 220px; }
+    .hero::after { bottom: -78px; left: -78px; width: 190px; height: 190px; }
+    .hero__inner { position: relative; z-index: 1; display: grid; gap: 18px; min-height: 630px; align-content: center; padding-block: 64px 44px; }
+    .hero__label { width: fit-content; margin: 0; padding: 5px 12px; border: 1px solid var(--line); background: var(--mustard-soft); font-size: 14px; font-weight: 700; line-height: 1.6; }
+    .hero__small { display: block; margin-bottom: 8px; color: var(--red); font-size: 18px; }
+    .hero__title { max-width: 660px; margin-bottom: 0; }
+    .hero__title strong { display: block; color: var(--blue); font-size: 1em; font-weight: 600; }
+    .hero__lead { max-width: 36em; margin-bottom: 0; word-break: normal; }
+    .hero__visual { position: relative; width: min(100%, 360px); min-height: 250px; margin: 6px auto 0; }
+    .hero__photo { position: absolute; right: 8px; bottom: 0; z-index: 2; width: 142px; height: auto; }
+    .hero__paper { position: absolute; top: 8px; left: 0; width: 74%; padding: 24px 18px 22px; border: 1.5px solid var(--line); background: #fff; transform: rotate(-2deg); }
+    .hero__paper p { margin-bottom: 5px; font-family: "Klee One", serif; font-size: 17px; line-height: 1.55; }
+    .hero__staff { width: 96px; height: 50px; margin-top: 14px; color: var(--red); }
+
+    .intro { padding-block: 52px; background: var(--green-soft); border-bottom: 1px solid #afa696; }
+    .intro__grid { display: grid; gap: 20px; }
+    .intro__card { min-width: 0; padding: 22px 20px; border: 1px solid var(--line); background: var(--paper-light); }
+    .intro__card svg { width: 42px; height: 42px; margin-bottom: 14px; fill: none; stroke: var(--green); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .intro__card p { margin-bottom: 0; }
+
+    .library { padding-block: 48px; border-bottom: 1px solid #afa696; }
+    .library__lead { max-width: 38em; }
+    .toko-note { margin: 24px 0 30px; padding: 20px; border: 1px solid var(--line); background: var(--plum-soft); }
+    .toko-note h3 { margin-bottom: 8px; }
+    .toko-note p { margin-bottom: 0; }
+    .song-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+    .song-choice { position: relative; min-height: 130px; padding: 18px 12px 16px; border: 1.5px solid var(--line); border-bottom: 6px solid var(--song-color); background: var(--paper-light); color: var(--ink); text-align: left; cursor: pointer; }
+    .song-choice:nth-child(odd) { transform: rotate(-.7deg); }
+    .song-choice:nth-child(even) { transform: rotate(.7deg); }
+    .song-choice.is-active { background: var(--song-soft); outline: 3px double var(--line); outline-offset: 3px; transform: rotate(0); }
+    .song-choice__number { display: block; margin-bottom: 8px; color: var(--muted); font-family: "Klee One", serif; font-size: 14px; line-height: 1.4; }
+    .song-choice__title { display: block; font-family: "Klee One", serif; font-size: 17px; font-weight: 600; line-height: 1.45; }
+
+    .content { scroll-margin-top: 20px; background: var(--paper-light); }
+    .song-panel { max-width: 820px; margin-inline: auto; padding-bottom: 64px; }
+    .song-panel[hidden] { display: none; }
+    .song-heading { padding: 26px 24px; border-bottom: 1px solid #afa696; background: var(--song-soft); }
+    .song-heading__number { margin-bottom: 4px; color: var(--muted); font-family: "Klee One", serif; }
+    .song-heading h2 { margin-bottom: 0; color: var(--song-color); }
+    .song-section { padding: 36px 24px; border-bottom: 1px solid #d1c9bc; }
+    .video-frame { position: relative; overflow: hidden; width: 100%; aspect-ratio: 16 / 9; border: 1.5px solid var(--line); background: #e7e1d6; }
+    .video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; background: #e7e1d6; }
+    .video-placeholder { display: grid; place-items: center; width: 100%; height: 100%; padding: 28px; text-align: center; }
+    .video-placeholder svg { width: 62px; height: 62px; margin: 0 auto 14px; fill: none; stroke: var(--song-color); stroke-width: 1.6; }
+    .video-placeholder p { margin-bottom: 0; }
+    .video-note { margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .lyrics { margin: 0; padding: 22px 20px; border-left: 5px solid var(--song-color); background: var(--paper); font-family: "Klee One", serif; font-size: 18px; line-height: 1.85; white-space: pre-line; }
+    .play-box { padding: 22px 20px; border: 1px solid var(--line); background: var(--song-soft); }
+    .play-box p:last-child { margin-bottom: 0; }
+    .coming { display: inline-block; margin-bottom: 10px; padding: 4px 10px; border: 1px solid var(--line); background: var(--paper-light); font-size: 14px; font-weight: 700; }
+    .back-button { width: 100%; min-height: 60px; padding: 12px 48px 12px 20px; border: 0; border-bottom: 4px solid var(--red); background: var(--line); color: #fff; font-size: 17px; font-weight: 700; cursor: pointer; }
+
+    .toko-message { padding-block: 52px; border-top: 1px solid #afa696; background: var(--plum-soft); }
+    .message-box { display: grid; gap: 18px; max-width: 720px; margin-inline: auto; padding: 24px; border: 1.5px solid var(--line); background: var(--paper-light); }
+    .message-box__photo { width: 110px; height: auto; margin-inline: auto; }
+    .message-box p:last-child { margin-bottom: 0; }
+    .footer { padding: 32px 24px; border-top: 1px solid #afa696; background: var(--ink); color: #fff; text-align: center; }
+    .footer p { margin-bottom: 0; font-family: "Klee One", serif; }
+
+    @media (min-width: 720px) {
+      body { font-size: 17px; }
+      h1 { font-size: 40px; }
+      h2 { font-size: 30px; }
+      h3 { font-size: 22px; }
+      .hero__inner { grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); align-items: center; min-height: 620px; }
+      .hero__title strong { font-size: 1.28em; }
+      .hero__copy { align-self: center; }
+      .hero__visual { width: 100%; min-height: 360px; }
+      .hero__photo { width: 190px; }
+      .hero__paper { top: 42px; width: 76%; padding: 30px 26px; }
+      .intro__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .song-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+      .song-choice { min-height: 164px; padding: 20px 16px; }
+      .song-choice__title { font-size: 18px; }
+      .song-panel { border-right: 1px solid #d1c9bc; border-left: 1px solid #d1c9bc; }
+      .song-heading, .song-section { padding-right: 40px; padding-left: 40px; }
+      .message-box { grid-template-columns: 150px minmax(0, 1fr); align-items: center; padding: 32px; }
+      .message-box__photo { width: 150px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .song-choice { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner inner">
+      <div class="hero__copy">
+        <p class="hero__label">12月 3days　Day1プレゼント</p>
+        <h1 class="hero__title"><span class="hero__small">見て・まねして・歌える</span><strong>トコの手遊び動画つき</strong>マザーグース厳選10曲</h1>
+        <p class="hero__lead">歌を聞くだけでなく、トコさんの動きを見ながら親子で楽しめる10曲を集めました。</p>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__paper">
+          <p>Round and round,</p>
+          <p>up and down.</p>
+          <svg class="hero__staff" viewBox="0 0 120 60"><path d="M5 16h110M5 26h110M5 36h110M5 46h110" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M32 13v28c0 8-13 10-16 3-3-7 10-13 16-6M73 7v27c0 8-13 10-16 3-3-7 10-13 16-6M73 8l19-5v26c0 8-13 10-16 3-3-7 10-13 16-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <img class="hero__photo" src="assets/toko-guide.png" alt="" width="342" height="520">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="inner">
+        <h2 id="intro-title">マザーグースは、歌って遊べる英語です</h2>
+        <div class="intro__grid">
+          <article class="intro__card">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 31c5-12 13-18 24-18M12 36c8-7 16-10 25-9M31 9c0 7 3 12 9 15M9 31l-3 7 8-1"/></svg>
+            <h3>まずは見る</h3>
+            <p>トコさんの手や体の動きを、動画でゆっくり見てみます。</p>
+          </article>
+          <article class="intro__card">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 30c5-2 8-6 8-12V9M18 24c5-2 8-6 8-12V6M30 25c4 0 7 3 7 7s-3 8-9 9c-8 2-17-1-20-8"/></svg>
+            <h3>まねして遊ぶ</h3>
+            <p>きれいにできなくても大丈夫。親子で同じ動きを楽しみます。</p>
+          </article>
+          <article class="intro__card">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 33c5 5 10 6 15 0M24 33c5 5 10 6 15 0M14 25c0-9 4-15 10-15s10 6 10 15M20 25h8"/></svg>
+            <h3>一緒に歌う</h3>
+            <p>歌詞を見ながら、言えるところだけ声に出してみます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="library" id="library" aria-labelledby="library-title">
+      <div class="inner">
+        <h2 id="library-title">どの歌で遊んでみる？</h2>
+        <p class="library__lead">曲名を押すと、動画と歌詞が下に開きます。順番どおりでなくても大丈夫です。</p>
+        <aside class="toko-note">
+          <h3>トコさんからひとこと</h3>
+          <p>ここには、マザーグースを楽しむときに大切にしてほしいことを、トコさんの言葉で短く入れます。</p>
+        </aside>
+        <div class="song-grid" id="song-grid" aria-label="マザーグース10曲の目次"></div>
+      </div>
+    </section>
+
+    <section class="content" id="song-content" aria-live="polite">
+      <div id="song-panels"></div>
+    </section>
+
+    <section class="toko-message" aria-labelledby="message-title">
+      <div class="inner">
+        <div class="message-box">
+          <img class="message-box__photo" src="assets/toko-guide.png" alt="トコさん" width="342" height="520">
+          <div>
+            <h2 id="message-title">トコさんが大切にしていること</h2>
+            <p>ここには、マザーグースを親子で楽しむときに大切にしてほしいことを、トコさんの言葉で入れます。</p>
+            <p>完成版では、トコさんからいただいた音声や文章をもとに整えます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>トコの手遊び動画つき　マザーグース厳選10曲</p>
+  </footer>
+
+  <script>
+    const songs = [
+      {
+        title: "One, Two, Three, Four, Five",
+        color: "#527f91", soft: "#dbe7e7", file: "IMG_9862.MOV",
+        lyrics: `One, two, three, four, five,\nOnce I caught a fish alive.\nSix, seven, eight, nine, ten,\nThen I let it go again.\nWhy did you let it go?\nBecause it bit my finger so.\nWhich finger did it bite?\nThis little finger on my right.`,
+        play: "数字を指で数えながら歌います。最後は小指を見せて遊びます。"
+      },
+      {
+        title: "Wind the Bobbin Up",
+        color: "#83677b", soft: "#e8dce4", file: "IMG_9864.MOV",
+        lyrics: `Wind the bobbin up, wind the bobbin up,\nPull, pull, clap, clap, clap.\nWind it back again, wind it back again,\nPull, pull, clap, clap, clap.\nPoint to the ceiling, point to the floor.\nPoint to the window, point to the door.`,
+        play: "腕をくるくる回し、歌詞に合わせて天井や床を指さします。"
+      },
+      {
+        title: "Hickory Dickory Dock",
+        color: "#c96155", soft: "#efd8ce", file: "IMG_9866.MOV",
+        lyrics: `Tick tock, tick tock,\nHickory, dickory, dock,\nThe mouse ran up the clock.\nThe clock struck one,\nThe mouse ran down,\nHickory, dickory, dock.`,
+        play: "指をねずみに見立てて、腕を時計のように上っていきます。2番はtwo、3番はthreeに替えます。"
+      },
+      {
+        title: "Where Is Thumbkin?",
+        color: "#83677b", soft: "#e8dce4", file: "IMG_9867.MOV",
+        lyrics: `Where is Thumbkin? Where is Thumbkin?\nHere I am! Here I am!\nHow are you today, sir?\nVery well, I thank you.\nRun away. Run away.`,
+        play: "親指から順に、指を隠したり見せたりして歌います。"
+      },
+      {
+        title: "Roly Poly",
+        color: "#638a76", soft: "#dce8dc", file: "IMG_9880 2.MOV",
+        lyrics: `Roly poly, roly poly, up, up, up.\nRoly poly, roly poly, down, down, down.\nRoly poly, roly poly, out, out, out.\nRoly poly, roly poly, in, in, in.`,
+        play: "両手をくるくる回します。上、下、外、内へ動かして楽しみます。速さや声の大きさも変えられます。"
+      },
+      {
+        title: "Incy Wincy Spider",
+        color: "#527f91", soft: "#dbe7e7", file: "IMG_9884.MOV",
+        lyrics: `Incy Wincy Spider\nclimbed up the water spout.\nDown came the rain\nand washed poor Incy out.\nOut came the sunshine\nand dried up all the rain.\nAnd Incy Wincy Spider\nclimbed up the spout again.`,
+        play: "両手の指でクモの動きを作り、雨と太陽も手で表します。"
+      },
+      {
+        title: "Two Little Dickie Birds",
+        color: "#638a76", soft: "#dce8dc", file: "IMG_9888.MOV",
+        lyrics: `Two little dickie birds\nsitting on a wall,\nOne named Peter,\none named Paul.\nFly away, Peter!\nFly away, Paul!\nCome back, Peter!\nCome back, Paul!`,
+        play: "2本の指を小鳥に見立てて、飛んでいく動きと戻る動きを楽しみます。"
+      },
+      {
+        title: "Pat-a-Cake",
+        color: "#c96155", soft: "#efd8ce", file: "IMG_9890.MOV",
+        lyrics: `Pat-a-cake, pat-a-cake,\nbaker's man,\nBake me a cake\nas fast as you can.\nPat it and prick it\nand mark it with B,\nAnd put it in the oven\nfor baby and me.`,
+        play: "手拍子をしたり、親子で手を合わせたりして歌います。"
+      },
+      {
+        title: "Row, Row, Row Your Boat",
+        color: "#527f91", soft: "#dbe7e7", file: "IMG_9891.MOV",
+        lyrics: `Row, row, row your boat,\nGently down the stream.\nMerrily, merrily, merrily, merrily,\nLife is but a dream.\n\nIf you see a crocodile,\nDon't forget to scream!`,
+        play: "向かい合って手をつなぎ、ボートをこぐように体を前後へ動かします。"
+      },
+      {
+        title: "Pease Porridge Hot",
+        color: "#b78632", soft: "#eee0bc", file: "IMG_9899 2.MOV",
+        lyrics: `Pease porridge hot,\nPease porridge cold,\nPease porridge in the pot,\nNine days old.\n\nSome like it hot,\nSome like it cold,\nSome like it in the pot,\nNine days old.`,
+        play: "手拍子と相手の手を交互にたたき、リズムを楽しみます。"
+      }
+    ];
+
+    const grid = document.getElementById("song-grid");
+    const panels = document.getElementById("song-panels");
+
+    songs.forEach((song, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "song-choice";
+      button.dataset.song = String(index);
+      button.style.setProperty("--song-color", song.color);
+      button.style.setProperty("--song-soft", song.soft);
+      button.setAttribute("aria-controls", `song-${index + 1}`);
+      button.setAttribute("aria-label", `${index + 1}曲目 ${song.title}を開く`);
+      button.innerHTML = `<span class="song-choice__number">${index + 1}曲目</span><span class="song-choice__title">${song.title}</span>`;
+      grid.appendChild(button);
+
+      const panel = document.createElement("article");
+      panel.className = "song-panel";
+      panel.id = `song-${index + 1}`;
+      panel.hidden = index !== 0;
+      panel.style.setProperty("--song-color", song.color);
+      panel.style.setProperty("--song-soft", song.soft);
+      const videoMarkup = song.video
+        ? `<video controls preload="metadata" playsinline src="${song.video}">動画を再生できません。</video>`
+        : `<div class="video-placeholder"><div><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="12" width="48" height="40"/><path d="M27 24l14 8-14 8z"/></svg><p>Canvaの動画をここに入れます</p></div></div>`;
+      panel.innerHTML = `
+        <header class="song-heading">
+          <p class="song-heading__number">${index + 1}曲目</p>
+          <h2>${song.title}</h2>
+        </header>
+        <section class="song-section">
+          <h3>トコさんの手遊び動画</h3>
+          <div class="video-frame">${videoMarkup}</div>
+          <p class="video-note">50％試作では動画部分を仮表示しています。</p>
+        </section>
+        <section class="song-section">
+          <h3>歌詞を見ながら歌ってみよう</h3>
+          <p class="lyrics">${song.lyrics}</p>
+        </section>
+        <section class="song-section">
+          <span class="coming">遊び方</span>
+          <h3>こんなふうに楽しめます</h3>
+          <div class="play-box"><p>${song.play}</p></div>
+        </section>
+        <section class="song-section">
+          <button class="back-button" type="button" data-back>ほかの曲を選ぶ</button>
+        </section>`;
+      panels.appendChild(panel);
+    });
+
+    function openSong(index, shouldScroll = true) {
+      document.querySelectorAll(".song-choice").forEach((button, buttonIndex) => {
+        const active = buttonIndex === index;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+      document.querySelectorAll(".song-panel").forEach((panel, panelIndex) => {
+        panel.hidden = panelIndex !== index;
+      });
+      if (shouldScroll) {
+        document.getElementById("song-content").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    grid.addEventListener("click", event => {
+      const button = event.target.closest("[data-song]");
+      if (!button) return;
+      openSong(Number(button.dataset.song));
+    });
+
+    panels.addEventListener("click", event => {
+      if (!event.target.closest("[data-back]")) return;
+      document.getElementById("library").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    openSong(0, false);
+    document.body.dataset.viewportWidth = String(window.innerWidth);
+    document.body.dataset.pageWidth = String(document.documentElement.scrollWidth);
+  </script>
+</body>
+</html>
