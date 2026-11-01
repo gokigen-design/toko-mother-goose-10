@@ -100,6 +100,7 @@
     .video-frame { position: relative; overflow: hidden; width: 100%; aspect-ratio: 16 / 9; border: 4px double var(--line); background-color: #f6f1e7; background-image: url("assets/ivory-linen-texture.webp"); background-size: 620px auto; }
     .video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; background: var(--white); }
     .video-frame iframe { display: block; width: 100%; height: 100%; border: 0; background: var(--white); }
+    .youtube-slot { width: 100%; height: 100%; }
     .video-placeholder { display: grid; place-items: center; width: 100%; height: 100%; padding: 28px; text-align: center; }
     .video-placeholder svg { width: 62px; height: 62px; margin: 0 auto 14px; fill: none; stroke: var(--song-color); stroke-width: 1.6; }
     .video-placeholder p { margin-bottom: 0; }
@@ -301,17 +302,18 @@
       button.style.setProperty("--art-y", artPositions[index][1]);
       button.setAttribute("aria-controls", `song-${index + 1}`);
       button.setAttribute("aria-label", `${index + 1}曲目 ${song.title}を開く`);
+      button.setAttribute("aria-pressed", "false");
       button.innerHTML = `<span class="song-choice__art" aria-hidden="true"></span><span class="song-choice__number">${index + 1}曲目</span><span class="song-choice__title">${song.title}</span>`;
       grid.appendChild(button);
 
       const panel = document.createElement("article");
       panel.className = "song-panel";
       panel.id = `song-${index + 1}`;
-      panel.hidden = index !== 0;
+      panel.hidden = true;
       panel.style.setProperty("--song-color", song.color);
       panel.style.setProperty("--song-soft", song.soft);
       const videoMarkup = song.youtube
-        ? `<iframe src="https://www.youtube-nocookie.com/embed/${song.youtube}?rel=0&enablejsapi=1" title="${song.title} 手遊び動画" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`
+        ? `<div class="youtube-slot" data-youtube="${song.youtube}" data-video-title="${song.title} 手遊び動画"></div>`
         : song.video
           ? `<video controls preload="metadata" playsinline src="${song.video}">動画を再生できません。</video>`
           : `<div class="video-placeholder"><div><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="12" width="48" height="40"/><path d="M27 24l14 8-14 8z"/></svg><p>手遊び動画は準備中です</p></div></div>`;
@@ -348,6 +350,17 @@
       }
     }
 
+    function ensureMedia(panel) {
+      const slot = panel.querySelector("[data-youtube]");
+      if (!slot || slot.querySelector("iframe")) return;
+      const frame = document.createElement("iframe");
+      frame.src = `https://www.youtube-nocookie.com/embed/${slot.dataset.youtube}?rel=0&enablejsapi=1`;
+      frame.title = slot.dataset.videoTitle;
+      frame.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+      frame.allowFullscreen = true;
+      slot.appendChild(frame);
+    }
+
     function openSong(index, shouldScroll = true) {
       document.querySelectorAll(".song-choice").forEach((button, buttonIndex) => {
         const active = buttonIndex === index;
@@ -357,6 +370,7 @@
       document.querySelectorAll(".song-panel").forEach((panel, panelIndex) => {
         const active = panelIndex === index;
         panel.hidden = !active;
+        if (active) ensureMedia(panel);
         if (!active) stopMedia(panel);
       });
       if (shouldScroll) {
@@ -372,11 +386,17 @@
 
     panels.addEventListener("click", event => {
       if (!event.target.closest("[data-back]")) return;
-      document.querySelectorAll(".song-panel").forEach(panel => stopMedia(panel));
+      document.querySelectorAll(".song-panel").forEach(panel => {
+        stopMedia(panel);
+        panel.hidden = true;
+      });
+      document.querySelectorAll(".song-choice").forEach(button => {
+        button.classList.remove("is-active");
+        button.setAttribute("aria-pressed", "false");
+      });
       document.getElementById("library").scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
-    openSong(0, false);
     document.body.dataset.viewportWidth = String(window.innerWidth);
     document.body.dataset.pageWidth = String(document.documentElement.scrollWidth);
   </script>
