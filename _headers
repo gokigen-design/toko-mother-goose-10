@@ -9,3 +9,9 @@
 
 /assets/mother-goose-vignettes.webp
   Cache-Control: public, max-age=86400
+
+/assets/antique-paper-texture.webp
+  Cache-Control: public, max-age=86400
+
+/assets/ivory-linen-texture.webp
+  Cache-Control: public, max-age=86400
