@@ -11,8 +11,8 @@
   <style>
     :root {
       --white: #fff;
-      --paper: #ede1cb;
-      --paper-light: #f8f0e1;
+      --paper: #f5f2eb;
+      --paper-light: #fcfaf6;
       --ink: #3b342a;
       --muted: #716657;
       --line: #4b4438;
@@ -64,7 +64,7 @@
     .hero__lead { max-width: 36em; margin-bottom: 0; word-break: normal; }
     .hero__visual { position: relative; width: min(100%, 360px); min-height: 250px; margin: 6px auto 0; }
     .hero__photo { position: absolute; right: 8px; bottom: 0; z-index: 2; width: 142px; height: auto; }
-    .hero__paper { position: absolute; top: 8px; left: 0; width: 74%; padding: 24px 18px 22px; border: 4px double var(--line); background-color: var(--paper-light); background-image: url("assets/antique-paper-texture.webp"); background-size: 620px auto; transform: rotate(-1deg); }
+    .hero__paper { position: absolute; top: 8px; left: 0; width: 74%; padding: 24px 18px 22px; border: 4px double var(--line); background-color: var(--paper-light); background-image: url("assets/antique-paper-texture.webp"); background-size: 620px auto; background-blend-mode: screen; transform: rotate(-1deg); }
     .hero__paper p { margin-bottom: 5px; font-family: "Cormorant Garamond", serif; font-size: 20px; font-weight: 600; line-height: 1.4; }
     .hero__staff { width: 96px; height: 50px; margin-top: 14px; color: var(--red); }
 
@@ -74,7 +74,7 @@
     .intro__card svg { width: 42px; height: 42px; margin-bottom: 14px; fill: none; stroke: var(--green); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
     .intro__card p { margin-bottom: 0; }
 
-    .library { padding-block: 48px; border-bottom: 3px double #a69a85; background-color: var(--paper); background-image: url("assets/antique-paper-texture.webp"); background-size: 760px auto; }
+    .library { padding-block: 48px; border-bottom: 3px double #a69a85; background-color: var(--paper); background-image: url("assets/antique-paper-texture.webp"); background-size: 760px auto; background-blend-mode: screen; }
     .library__lead { max-width: 38em; }
     .toko-note { position: relative; margin: 24px 0 30px; padding: 24px; border: 4px double var(--line); background: rgba(255,255,255,.88); }
     .toko-note::before, .toko-note::after { position: absolute; width: 22px; height: 22px; content: ""; }
@@ -93,7 +93,7 @@
     .content { scroll-margin-top: 20px; background: var(--white); }
     .song-panel { max-width: 820px; margin-inline: auto; padding-bottom: 64px; }
     .song-panel[hidden] { display: none; }
-    .song-heading { padding: 26px 24px; border-block: 4px double var(--line); background-color: var(--paper); background-image: url("assets/antique-paper-texture.webp"); background-size: 680px auto; }
+    .song-heading { padding: 26px 24px; border-block: 4px double var(--line); background-color: var(--paper); background-image: url("assets/antique-paper-texture.webp"); background-size: 680px auto; background-blend-mode: screen; }
     .song-heading__number { margin-bottom: 4px; color: var(--muted); font-family: "Shippori Mincho", serif; }
     .song-heading h2 { margin-bottom: 0; color: var(--green); font-family: "Cormorant Garamond", "Shippori Mincho", serif; }
     .song-section { padding: 36px 24px; border-bottom: 1px solid #d1c9bc; background: var(--white); }
