@@ -99,6 +99,7 @@
     .song-section { padding: 36px 24px; border-bottom: 1px solid #d1c9bc; background: var(--white); }
     .video-frame { position: relative; overflow: hidden; width: 100%; aspect-ratio: 16 / 9; border: 4px double var(--line); background-color: #f6f1e7; background-image: url("assets/ivory-linen-texture.webp"); background-size: 620px auto; }
     .video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; background: var(--white); }
+    .video-frame iframe { display: block; width: 100%; height: 100%; border: 0; background: var(--white); }
     .video-placeholder { display: grid; place-items: center; width: 100%; height: 100%; padding: 28px; text-align: center; }
     .video-placeholder svg { width: 62px; height: 62px; margin: 0 auto 14px; fill: none; stroke: var(--song-color); stroke-width: 1.6; }
     .video-placeholder p { margin-bottom: 0; }
@@ -222,13 +223,13 @@
     const songs = [
       {
         title: "One, Two, Three, Four, Five",
-        color: "#527f91", soft: "#dbe7e7", file: "IMG_9862.MOV", video: "assets/videos/1.mp4",
+        color: "#527f91", soft: "#dbe7e7", file: "IMG_9862.MOV", youtube: "pv4tZBy0bgM",
         lyrics: `One, two, three, four, five,\nOnce I caught a fish alive.\nSix, seven, eight, nine, ten,\nThen I let it go again.\nWhy did you let it go?\nBecause it bit my finger so.\nWhich finger did it bite?\nThis little finger on my right.`,
         play: "数字を指で数えながら歌います。最後は小指を見せて遊びます。"
       },
       {
         title: "Wind the Bobbin Up",
-        color: "#83677b", soft: "#e8dce4", file: "IMG_9864.MOV", video: "assets/videos/2.mp4",
+        color: "#83677b", soft: "#e8dce4", file: "IMG_9864.MOV", youtube: "8V99sVGYrA0",
         lyrics: `Wind the bobbin up, wind the bobbin up,\nPull, pull, clap, clap, clap.\nWind it back again, wind it back again,\nPull, pull, clap, clap, clap.\nPoint to the ceiling, point to the floor.\nPoint to the window, point to the door.`,
         play: "腕をくるくる回し、歌詞に合わせて天井や床を指さします。"
       },
@@ -309,9 +310,11 @@
       panel.hidden = index !== 0;
       panel.style.setProperty("--song-color", song.color);
       panel.style.setProperty("--song-soft", song.soft);
-      const videoMarkup = song.video
-        ? `<video controls preload="metadata" playsinline src="${song.video}">動画を再生できません。</video>`
-        : `<div class="video-placeholder"><div><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="12" width="48" height="40"/><path d="M27 24l14 8-14 8z"/></svg><p>手遊び動画は準備中です</p></div></div>`;
+      const videoMarkup = song.youtube
+        ? `<iframe src="https://www.youtube-nocookie.com/embed/${song.youtube}?rel=0&enablejsapi=1" title="${song.title} 手遊び動画" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`
+        : song.video
+          ? `<video controls preload="metadata" playsinline src="${song.video}">動画を再生できません。</video>`
+          : `<div class="video-placeholder"><div><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="12" width="48" height="40"/><path d="M27 24l14 8-14 8z"/></svg><p>手遊び動画は準備中です</p></div></div>`;
       panel.innerHTML = `
         <header class="song-heading">
           <p class="song-heading__number">${index + 1}曲目</p>
@@ -336,6 +339,15 @@
       panels.appendChild(panel);
     });
 
+    function stopMedia(panel) {
+      const video = panel.querySelector("video");
+      if (video) video.pause();
+      const frame = panel.querySelector("iframe");
+      if (frame && frame.contentWindow) {
+        frame.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', "https://www.youtube-nocookie.com");
+      }
+    }
+
     function openSong(index, shouldScroll = true) {
       document.querySelectorAll(".song-choice").forEach((button, buttonIndex) => {
         const active = buttonIndex === index;
@@ -345,10 +357,7 @@
       document.querySelectorAll(".song-panel").forEach((panel, panelIndex) => {
         const active = panelIndex === index;
         panel.hidden = !active;
-        if (!active) {
-          const video = panel.querySelector("video");
-          if (video) video.pause();
-        }
+        if (!active) stopMedia(panel);
       });
       if (shouldScroll) {
         document.getElementById("song-content").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -363,7 +372,7 @@
 
     panels.addEventListener("click", event => {
       if (!event.target.closest("[data-back]")) return;
-      document.querySelectorAll("video").forEach(video => video.pause());
+      document.querySelectorAll(".song-panel").forEach(panel => stopMedia(panel));
       document.getElementById("library").scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
