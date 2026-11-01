@@ -6,3 +6,6 @@
 
 /assets/toko-guide.png
   Cache-Control: public, max-age=86400
+
+/assets/mother-goose-vignettes.webp
+  Cache-Control: public, max-age=86400
