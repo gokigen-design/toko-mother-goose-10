@@ -86,7 +86,7 @@
     .song-choice { position: relative; min-height: 224px; padding: 12px 12px 16px 18px; border: 4px double var(--line); background: var(--white); color: var(--ink); text-align: left; cursor: pointer; }
     .song-choice::before { position: absolute; top: 0; bottom: 0; left: 6px; width: 1px; background: var(--red); content: ""; opacity: .55; }
     .song-choice.is-active { background: var(--paper-light); outline: 2px solid var(--red); outline-offset: 3px; }
-    .song-choice__art { display: block; width: 100%; aspect-ratio: 1 / .82; margin-bottom: 8px; background-image: url("assets/mother-goose-vignettes.webp"); background-repeat: no-repeat; background-position: var(--art-x) var(--art-y); background-size: 500% 200%; }
+    .song-choice__art { display: block; width: 100%; aspect-ratio: 1 / .82; margin-bottom: 8px; background-image: var(--art-image); background-repeat: no-repeat; background-position: center; background-size: contain; }
     .song-choice__number { display: block; margin-bottom: 6px; color: var(--muted); font-family: "Shippori Mincho", serif; font-size: 14px; line-height: 1.4; }
     .song-choice__title { display: block; font-family: "Cormorant Garamond", "Shippori Mincho", serif; font-size: 18px; font-weight: 600; line-height: 1.22; }
 
@@ -286,11 +286,6 @@
 
     const grid = document.getElementById("song-grid");
     const panels = document.getElementById("song-panels");
-    const artPositions = [
-      ["0%", "0%"], ["25%", "0%"], ["50%", "0%"], ["75%", "0%"], ["100%", "0%"],
-      ["0%", "100%"], ["25%", "100%"], ["50%", "100%"], ["75%", "100%"], ["100%", "100%"]
-    ];
-
     songs.forEach((song, index) => {
       const button = document.createElement("button");
       button.type = "button";
@@ -298,8 +293,7 @@
       button.dataset.song = String(index);
       button.style.setProperty("--song-color", song.color);
       button.style.setProperty("--song-soft", song.soft);
-      button.style.setProperty("--art-x", artPositions[index][0]);
-      button.style.setProperty("--art-y", artPositions[index][1]);
+      button.style.setProperty("--art-image", `url("assets/vignettes/${String(index + 1).padStart(2, "0")}.webp")`);
       button.setAttribute("aria-controls", `song-${index + 1}`);
       button.setAttribute("aria-label", `${index + 1}曲目 ${song.title}を開く`);
       button.setAttribute("aria-pressed", "false");
